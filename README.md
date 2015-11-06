@@ -1,4 +1,6 @@
 # Quotations
+[![Build Status](https://travis-ci.org/kelvintaywl/quotations.svg?branch=master)](https://travis-ci.org/kelvintaywl/quotations)
+
 
 This is a proof of concept for validating quotation marks in text.
 
