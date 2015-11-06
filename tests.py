@@ -83,6 +83,13 @@ class TestQuotationValid(unittest.TestCase):
                 "translation": u"'This is dog's bollocks!', she exclaimed",
                 "language_pair": "{}_{}".format(constants.LC_JAPANESE, constants.LC_ENGLISH),
                 "remarks": "this is a more complicated test that lone rangers should be ignored (e.g., \"Maccabees' place \""
+            },
+            {
+
+                "source": u"\"She said 'hello' to me the other day,\", Marie exclaimed.",
+                "translation": u"『彼女は先日私に「こんにちは」を言った、』、マリーは叫びました。",
+                "language_pair": "{}_{}".format(constants.LC_JAPANESE, constants.LC_ENGLISH),
+                "remarks": "this is to test for nested quotations."
             }
         ]
 
