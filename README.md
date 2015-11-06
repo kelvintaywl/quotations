@@ -14,11 +14,12 @@ from quotations import QuotationValidator
 
 # source in Japanese
 source = u"""
-
+「これは最高なものです！」と、彼女は叫びました。
 """
 
 # translation in English
 translation = u"""
+'This is dog's bollocks!', she exclaimed
 """
 
 # set strict to True; validate quotations from both source and translation
