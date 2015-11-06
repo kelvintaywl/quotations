@@ -37,5 +37,5 @@ except AssertionError:
 
 ## TODO
 
-- [] extend validations for brackets
+- [ ] extend validations for brackets
 
