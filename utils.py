@@ -10,11 +10,7 @@ NEUTRAL_EXCLUDE = {
 
 # the lone rangers where these quotations do not need a pairing based on some logic
 # long rangers typically appear right after an alphabet
-LONE_RANGERS = u'\''
-
-
-
-BRACKETS = u"()[]{}"
+LONE_RANGERS = u'\'\"’'
 
 QUOTATION_MAP = {
     constants.LC_ENGLISH: NEUTRAL_QUOTATIONS,

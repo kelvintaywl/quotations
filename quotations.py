@@ -26,10 +26,8 @@ class QuotationValidator(object):
             raise LanguageNotSupported
 
         stack = []
-        for quotation in QuotationExtractor(text, lc).extract():
-            if not stack:
-                stack.append(quotation)
-            elif stack[-1] ^ quotation:
+        for index, quotation in enumerate(QuotationExtractor(text, lc).extract()):
+            if len(stack) and stack[-1] ^ quotation:
                 # found complement
                 stack.pop()
             else:
@@ -46,7 +44,11 @@ class QuotationValidator(object):
 
         # raise issue when amount of quotations differs between source and translation
         if len(source_extractor) != len(translation_extractor):
-            raise TranslatedQuotationAmountDifference
+            raise TranslatedQuotationAmountDifference(
+                u"total quotations of source ({}) and translation ({}) is different.".format(
+                    list(source_extractor.extract()), list(translation_extractor.extract())
+                )
+            )
 
         # raise issue if order of quotations between source and translation do not tally
         source_quotations = list(source_extractor.extract())
@@ -56,7 +58,12 @@ class QuotationValidator(object):
             if source_quotations[index] == translation_quotations[index]:
                 continue
             else:
-                raise TranslatedQuotationWrongOrder
+                raise TranslatedQuotationWrongOrder(
+                    "differing order in quotation: source ({}), target ({})".format(
+                        source_quotations[index],
+                        translation_quotations[index]
+                    )
+                )
 
     @staticmethod
     def validate(source, translation, language_pair, verbose=False, strict=False):
